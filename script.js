@@ -6,50 +6,50 @@
 
   /* ---------- DATA ---------- */
   var features = [
-    { num: '01', title: 'Качественное образование', text: 'Программа направлена на глубокое понимание предметов и развитие практических навыков.' },
-    { num: '02', title: 'Опытные преподаватели', text: 'Учителя помогают достигать высоких результатов и поддерживают на каждом этапе обучения.' },
-    { num: '03', title: 'Современный подход', text: 'Эффективные методы обучения делают процесс интересным и продуктивным.' },
-    { num: '04', title: 'Развитие личности', text: 'Развиваем знания, ответственность, уверенность, самостоятельность и лидерские качества.' }
+    { num: '01', title: 'Sifatli ta\'lim', text: 'Dastur fanlarga chuqur tushunish va amaliy ko\'nikmalarni rivojlantirishga yo\'naltirilgan.' },
+    { num: '02', title: 'Tajribali o\'qituvchilar', text: 'O\'qituvchilar yuqori natijalarga erishishga yordam beradi va ta\'limning har bir bosqichida qo\'llab-quvvatlaydi.' },
+    { num: '03', title: 'Zamonaviy yondashuv', text: 'Samarali o\'qitish usullari jarayonni qiziqarli va unumli qiladi.' },
+    { num: '04', title: 'Shaxsni rivojlantirish', text: 'Bilim, mas\'uliyat, ishonch, mustaqillik va yetakchilik fazilatlarini rivojlantiramiz.' }
   ];
 
   var directions = [
     {
-      name: 'Русское направление',
+      name: 'Rus yo\'nalishi',
       img: 'assets/tech-class.webp',
-      title: 'Русское направление',
-      desc: 'Обучение на русском языке с углублённым вниманием к ключевым предметам и современным методикам преподавания.',
-      points: ['Обучение на русском языке', 'Углублённое внимание к английскому языку и математике', 'Современные методики преподавания'],
-      quote: '«Дочь ходит в школу с удовольствием. Видим реальный прогресс в математике и английском».',
-      author: 'Наргиза А. · мама ученицы 3 класса'
+      title: 'Rus yo\'nalishi',
+      desc: 'Rus tilida ta\'lim, asosiy fanlarga chuqur e\'tibor va zamonaviy o\'qitish metodikalari.',
+      points: ['Rus tilida ta\'lim', 'Ingliz tili va matematikaga chuqur e\'tibor', 'Zamonaviy o\'qitish metodikalari'],
+      quote: '«Qizim maktabga xursandchilik bilan boradi. Matematika va ingliz tilida haqiqiy rivojlanishni ko\'ryapmiz».',
+      author: 'Nargiza A. · 3-sinf o\'quvchisining onasi'
     },
     {
-      name: 'Узбекское направление',
+      name: 'O\'zbek yo\'nalishi',
       img: 'assets/art-class.webp',
-      title: 'Узбекское направление',
-      desc: 'Обучение на узбекском языке с развитием академических навыков и подготовкой к будущим достижениям.',
-      points: ['Обучение на узбекском языке', 'Развитие академических навыков', 'Подготовка к будущим достижениям'],
-      quote: '«Сильная база и тёплая атмосфера. Ребёнок раскрылся и стал увереннее».',
-      author: 'Малика Р. · мама ученика 2 класса'
+      title: 'O\'zbek yo\'nalishi',
+      desc: 'O\'zbek tilida ta\'lim, akademik ko\'nikmalarni rivojlantirish va kelajakdagi yutuqlarga tayyorlash.',
+      points: ['O\'zbek tilida ta\'lim', 'Akademik ko\'nikmalarni rivojlantirish', 'Kelajakdagi yutuqlarga tayyorlash'],
+      quote: '«Mustahkam baza va iliq muhit. Farzandim ochildi va yanada ishonchli bo\'ldi».',
+      author: 'Malika R. · 2-sinf o\'quvchisining onasi'
     }
   ];
 
   var gallery = [
-    { img: 'assets/reception.webp', title: 'Ресепшн и главный холл', caption: 'Светлое пространство встречает учеников и родителей.' },
-    { img: 'assets/lobby-plants.webp', title: 'Зелёные зоны', caption: 'Живые растения и мягкий свет создают уют.' },
-    { img: 'assets/corridor.webp', title: 'Просторные коридоры', caption: 'Современная навигация и продуманное освещение.' },
-    { img: 'assets/hexagon-lounge.webp', title: 'Зоны отдыха', caption: 'Места для общения и перезагрузки между уроками.' },
-    { img: 'assets/marble-wall.webp', title: 'Стена Al Kamal', caption: 'Фирменный акцент в интерьере школы.' },
-    { img: 'assets/hall-wings.webp', title: 'Актовое пространство', caption: 'Просторный зал для событий и мероприятий.' },
-    { img: 'assets/tech-class.webp', title: 'Кабинет технологий', caption: 'Современное оснащение для практических занятий.' },
-    { img: 'assets/art-class.webp', title: 'Творческий класс', caption: 'Яркая среда, которая вдохновляет учиться.' }
+    { img: 'assets/reception.webp', title: 'Resepshn va asosiy hol', caption: 'Yorug\' makon o\'quvchilar va ota-onalarni kutib oladi.' },
+    { img: 'assets/lobby-plants.webp', title: 'Yashil zonalar', caption: 'Tirik o\'simliklar va yumshoq yorug\'lik qulay muhit yaratadi.' },
+    { img: 'assets/corridor.webp', title: 'Keng yo\'laklar', caption: 'Zamonaviy navigatsiya va o\'ylangan yoritish.' },
+    { img: 'assets/hexagon-lounge.webp', title: 'Dam olish zonalari', caption: 'Darslar orasida muloqot va dam olish joylari.' },
+    { img: 'assets/marble-wall.webp', title: 'Al Kamal devori', caption: 'Maktab interyerining o\'ziga xos aksenti.' },
+    { img: 'assets/hall-wings.webp', title: 'Aktovy zal', caption: 'Tadbirlar va anjumanlar uchun keng maydon.' },
+    { img: 'assets/tech-class.webp', title: 'Texnologiya sinfi', caption: 'Amaliy mashg\'ulotlar uchun zamonaviy jihozlar.' },
+    { img: 'assets/art-class.webp', title: 'Ijodiy sinf', caption: 'O\'qishga ilhomlantiruvchi yorqin muhit.' }
   ];
 
 
   var steps = [
-    { num: '01', title: 'Оставьте заявку', text: 'Заполните форму или позвоните нам — мы свяжемся с вами и ответим на вопросы.' },
-    { num: '02', title: 'Знакомство со школой', text: 'Приезжайте на экскурсию, познакомьтесь с педагогами и атмосферой AL KAMAL.' },
-    { num: '03', title: 'Собеседование', text: 'Проведём знакомство с ребёнком и определим подходящий класс и направление.' },
-    { num: '04', title: 'Зачисление', text: 'Оформляем документы — и добро пожаловать в AL KAMAL SCHOOL.' }
+    { num: '01', title: 'Ariza qoldiring', text: 'Shaklni to\'ldiring yoki bizga qo\'ng\'iroq qiling — biz siz bilan bog\'lanamiz va savollarga javob beramiz.' },
+    { num: '02', title: 'Maktab bilan tanishuv', text: 'Ekskursiyaga keling, o\'qituvchilar va AL KAMAL muhiti bilan tanishing.' },
+    { num: '03', title: 'Suhbat', text: 'Bola bilan tanishamiz va unga mos sinf hamda yo\'nalishni aniqlaymiz.' },
+    { num: '04', title: 'Qabul', text: 'Hujjatlarni rasmiylashtiramiz — AL KAMAL SCHOOL ga xush kelibsiz.' }
   ];
 
 
@@ -224,12 +224,12 @@
     if (!selectedGrades.length) { return; }
     var name   = fName.value.trim();
     var phone  = fPhone.value.trim();
-    var grades = selectedGrades.slice().sort().map(function(g){ return g+' класс'; }).join(', ');
+    var grades = selectedGrades.slice().sort().map(function(g){ return g+'-sinf'; }).join(', ');
 
     document.getElementById('formSteps').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
     document.getElementById('successMsg').textContent =
-      'Спасибо, ' + name + '! Мы свяжемся с вами в ближайшее время.';
+      'Rahmat, ' + name + '! Tez orada siz bilan bog\'lanamiz.';
 
     fetch(SHEET_URL, {
       method: 'POST',
