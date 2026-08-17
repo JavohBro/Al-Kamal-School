@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FENIX SCHOOL — Частная школа в Фергане</title>
-<meta name="description" content="FENIX SCHOOL — современная частная школа в Фергане. Обучение 1–11 классы, русское и узбекское направления. Воспитываем знания, развиваем будущее.">
+<title>AL KAMAL SCHOOL — Частная школа в Фергане</title>
+<meta name="description" content="AL KAMAL SCHOOL — современная частная школа в Фергане. Обучение 1–7 классы, русское и узбекское направления. Воспитываем знания, развиваем будущее.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@
   .nav.shrink{transform:translateX(-50%) scale(.955);box-shadow:0 14px 40px rgba(22,22,22,.12);background:rgba(250,249,247,.86)}
   .nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
   .nav-logo img{height:30px;width:auto}
-  .nav-logo span{font-size:16px;font-weight:800;letter-spacing:.16em}
+  .nav-logo span{font-size:16px;font-weight:800;letter-spacing:.16em;white-space:nowrap}
   .nav-links{display:flex;align-items:center;gap:26px;white-space:nowrap}
   .nav-links a{text-decoration:none;color:var(--ink);font-size:14.5px;font-weight:500;opacity:.78;transition:opacity .25s}
   .nav-links a:hover{opacity:1}
@@ -207,14 +207,20 @@
   .contact-row .k{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--gold-on-dark);width:80px;flex-shrink:0;padding-top:3px}
   .contact-row .v{font-size:17px;color:#FAF9F7;text-decoration:none}
   .form-wrap{padding:clamp(40px,5vw,72px);background:rgba(250,249,247,.04);border-left:1px solid rgba(250,249,247,.1);display:flex;align-items:center}
-  form{width:100%;display:flex;flex-direction:column;gap:16px}
-  form label{display:block;font-size:12.5px;font-weight:600;letter-spacing:.1em;color:rgba(250,249,247,.6);margin-bottom:9px}
-  form input,form select{width:100%;padding:16px 20px;border-radius:14px;border:1px solid rgba(250,249,247,.16);background:rgba(250,249,247,.06);color:#FAF9F7;font-size:16px;outline:none;transition:border-color .25s}
-  form input:focus,form select:focus{border-color:var(--gold-on-dark)}
-  form select option{color:#161616}
-  .form-submit{margin-top:8px;width:100%;padding:18px;border-radius:14px;border:none;background:var(--bg);color:var(--ink);font-size:16px;font-weight:700;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s ease}
+  #formSteps{width:100%}
+  .form-step{display:flex;flex-direction:column;gap:20px}
+  .step-q{font-size:clamp(24px,3vw,34px);font-weight:700;color:#FAF9F7;line-height:1.2;letter-spacing:-.01em}
+  .step-sub{font-size:14px;color:rgba(250,249,247,.5);margin-top:-10px}
+  .step-input{width:100%;padding:18px 22px;border-radius:14px;border:1px solid rgba(250,249,247,.16);background:rgba(250,249,247,.06);color:#FAF9F7;font-size:18px;outline:none;transition:border-color .25s}
+  .step-input:focus{border-color:var(--gold-on-dark)}
+  .form-submit{width:100%;padding:18px;border-radius:14px;border:none;background:var(--bg);color:var(--ink);font-size:16px;font-weight:700;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s ease}
   .form-submit:hover{transform:scale(1.02);box-shadow:0 14px 36px rgba(0,0,0,.35)}
-  .form-note{font-size:13px;color:rgba(250,249,247,.5);text-align:center;line-height:1.5}
+  #gradeChips{display:flex;flex-wrap:wrap;gap:10px}
+  .grade-chip{padding:12px 20px;border-radius:100px;border:1px solid rgba(250,249,247,.22);background:rgba(250,249,247,.06);color:#FAF9F7;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s,border-color .2s}
+  .grade-chip:hover{background:rgba(250,249,247,.14);border-color:rgba(250,249,247,.5)}
+  .grade-chip.selected{background:var(--gold-on-dark);border-color:var(--gold-on-dark);color:var(--dark)}
+  @keyframes stepIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .step-enter{animation:stepIn .4s cubic-bezier(.16,1,.3,1) both}
   .form-success{width:100%;text-align:center;padding:20px 0;display:none}
   .form-success .ok{display:inline-flex;align-items:center;justify-content:center;width:66px;height:66px;border-radius:50%;background:var(--gold-on-dark);color:var(--dark);font-size:28px}
   .form-success h3{margin-top:24px;font-size:26px;font-weight:700;color:#FAF9F7}
@@ -253,12 +259,11 @@
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <a href="#top" class="nav-logo"><img src="assets/phoenix.png" alt="Fenix"><span>FENIX</span></a>
+  <a href="#top" class="nav-logo"><img src="assets/phoenix.png" alt="Al Kamal"><span>AL KAMAL</span></a>
   <div class="nav-links">
     <a href="#about">О школе</a>
     <a href="#directions">Направления</a>
     <a href="#campus">Кампус</a>
-    <a href="#admission">Поступление</a>
     <a href="#reviews">Отзывы</a>
   </div>
   <a href="#contact" class="btn btn-dark" data-magnetic>Оставить заявку</a>
@@ -271,7 +276,7 @@
     <div class="hero-shade"></div>
     <div class="hero-top reveal">
       <span>ЧАСТНАЯ ШКОЛА · ФЕРГАНА</span>
-      <span style="opacity:.8">1–11 КЛАССЫ</span>
+      <span style="opacity:.8">1–7 КЛАССЫ</span>
     </div>
     <div class="hero-bottom">
       <div style="max-width:820px">
@@ -290,14 +295,14 @@
 <section class="about" id="about">
   <div class="container">
     <div class="grid2">
-      <div class="reveal blur"><div class="media"><img src="assets/reception-wood.webp" alt="Холл школы Fenix"></div></div>
+      <div class="reveal blur"><div class="media"><img src="assets/reception-wood.webp" alt="Холл школы Al Kamal"></div></div>
       <div>
         <span class="label reveal">О ШКОЛЕ</span>
         <h2 class="h2 reveal" style="transition-delay:.08s">Больше, чем просто <span class="light">обучение</span></h2>
-        <p class="lede reveal" style="transition-delay:.16s;margin-top:26px;max-width:520px">Мы верим, что каждый ребёнок уникален. Главная задача FENIX SCHOOL — создать условия, в которых ученик раскроет способности, получит сильную базу знаний и уверенность в себе.</p>
+        <p class="lede reveal" style="transition-delay:.16s;margin-top:26px;max-width:520px">Мы верим, что каждый ребёнок уникален. Главная задача AL KAMAL SCHOOL — создать условия, в которых ученик раскроет способности, получит сильную базу знаний и уверенность в себе.</p>
         <p class="lede reveal" style="transition-delay:.22s;margin-top:18px;color:var(--gray);max-width:520px">Наш подход сочетает современные методы обучения, опытных педагогов и индивидуальное внимание к каждому ученику.</p>
         <div class="stats reveal" style="transition-delay:.3s">
-          <div><div class="stat-num" data-count="11" data-prefix="1–">1–11</div><div class="stat-cap">КЛАССЫ</div></div>
+          <div><div class="stat-num" data-count="7" data-prefix="1–">1–7</div><div class="stat-cap">КЛАССЫ</div></div>
           <div><div class="stat-num" data-count="2">2</div><div class="stat-cap">НАПРАВЛЕНИЯ</div></div>
           <div><div class="stat-num">08–17</div><div class="stat-cap">ПН–СБ</div></div>
         </div>
@@ -310,8 +315,8 @@
 <section class="features">
   <div class="container">
     <div style="max-width:720px;margin-bottom:clamp(48px,6vw,80px)">
-      <span class="label reveal">ПОЧЕМУ FENIX</span>
-      <h2 class="h2 reveal" style="transition-delay:.08s">Почему выбирают <span class="light">FENIX SCHOOL</span></h2>
+      <span class="label reveal">ПОЧЕМУ AL KAMAL</span>
+      <h2 class="h2 reveal" style="transition-delay:.08s">Почему выбирают <span class="light">AL KAMAL SCHOOL</span></h2>
     </div>
     <div class="feature-grid" id="featureGrid"></div>
   </div>
@@ -323,7 +328,7 @@
     <div class="dir-head">
       <div style="max-width:640px">
         <span class="label reveal">НАПРАВЛЕНИЯ</span>
-        <h2 class="h2 reveal" style="transition-delay:.08s">Обучение <span class="light">1–11 классы</span></h2>
+        <h2 class="h2 reveal" style="transition-delay:.08s">Обучение <span class="light">1–7 классы</span></h2>
         <p class="reveal" style="transition-delay:.15s;margin-top:18px;font-size:18px;line-height:1.6;color:var(--gray)">Комфортная образовательная среда и внимательный подход к каждому ученику.</p>
       </div>
       <div class="dir-tabs" id="dirTabs"></div>
@@ -386,7 +391,7 @@
         <p class="lede reveal" style="transition-delay:.16s;margin-top:26px;max-width:500px">Образование — это не только уроки. Мы создаём условия, где ребёнок чувствует себя уверенно, получает поддержку и развивается каждый день.</p>
         <p class="lede reveal" style="transition-delay:.22s;margin-top:18px;color:var(--gray);max-width:500px">Для учеников предусмотрены комфортные условия обучения и полноценное питание в течение дня.</p>
       </div>
-      <div class="reveal blur" style="transition-delay:.12s"><div class="media"><img src="assets/hexagon-lounge.webp" alt="Зоны отдыха Fenix"></div></div>
+      <div class="reveal blur" style="transition-delay:.12s"><div class="media"><img src="assets/hexagon-lounge.webp" alt="Зоны отдыха Al Kamal"></div></div>
     </div>
   </div>
 </section>
@@ -411,7 +416,7 @@
   <div class="inner">
     <span class="label reveal">МИССИЯ</span>
     <h2 class="reveal blur" style="transition-delay:.1s">Создавать поколение <b>уверенных и успешных</b> людей.</h2>
-    <p class="reveal" style="transition-delay:.24s">Мы хотим, чтобы выпускники FENIX SCHOOL были готовы к большим целям, новым знаниям и будущим возможностям. Каждый день — новый шаг к успеху.</p>
+    <p class="reveal" style="transition-delay:.24s">Мы хотим, чтобы выпускники AL KAMAL SCHOOL были готовы к большим целям, новым знаниям и будущим возможностям. Каждый день — новый шаг к успеху.</p>
   </div>
 </section>
 
@@ -444,27 +449,47 @@
       <div class="contact-info">
         <span class="label">ЗАПИСЬ</span>
         <h2 style="margin-top:20px">Начните путь к успешному <span class="light">будущему</span></h2>
-        <p>Ваш ребёнок заслуживает сильного образования и правильной среды для развития. FENIX SCHOOL — место, где растут будущие лидеры.</p>
+        <p>Ваш ребёнок заслуживает сильного образования и правильной среды для развития. AL KAMAL SCHOOL — место, где растут будущие лидеры.</p>
         <div class="contact-list">
-          <div class="contact-row"><span class="k">АДРЕС</span><span class="v">Фергана, ул. Инженеров, 17</span></div>
-          <div class="contact-row"><span class="k">ТЕЛЕФОН</span><a class="v" href="tel:+998332710006">+998 33 271 00 06</a></div>
+          <div class="contact-row"><span class="k">АДРЕС</span><span class="v">Фергана, ул. Фаровон Турмуш, 560</span></div>
+          <div class="contact-row"><span class="k">ТЕЛЕФОН</span><a class="v" href="tel:+998732400073">+998 73 240 00 73</a></div>
           <div class="contact-row"><span class="k">РЕЖИМ</span><span class="v">Пн–Сб: 08:00–17:00</span></div>
         </div>
       </div>
       <div class="form-wrap">
-        <form id="applyForm">
-          <div><label>ИМЯ РОДИТЕЛЯ</label><input id="fName" required placeholder="Ваше имя"></div>
-          <div><label>ТЕЛЕФОН</label><input id="fPhone" required placeholder="+998 __ ___ __ __"></div>
-          <div><label>НАПРАВЛЕНИЕ</label>
-            <select id="fDir">
-              <option>Русское направление</option>
-              <option>Узбекское направление</option>
-              <option>Пока не определились</option>
-            </select>
+        <div id="formSteps">
+
+          <!-- Step 1: Name -->
+          <div id="stepName" class="form-step active">
+            <p class="step-q">Как вас зовут?</p>
+            <input id="fName" class="step-input" placeholder="Ваше имя" autocomplete="name">
+            <button type="button" id="btnName" class="form-submit">Продолжить</button>
           </div>
-          <button type="submit" class="form-submit" data-magnetic>Записаться на обучение</button>
-          <p class="form-note">Мы свяжемся с вами в ближайшее время</p>
-        </form>
+
+          <!-- Step 2: Phone -->
+          <div id="stepPhone" class="form-step" style="display:none">
+            <p class="step-q">Ваш номер телефона?</p>
+            <input id="fPhone" class="step-input" type="tel" autocomplete="tel">
+            <button type="button" id="btnPhone" class="form-submit">Продолжить</button>
+          </div>
+
+          <!-- Step 3: Grade -->
+          <div id="stepGrade" class="form-step" style="display:none">
+            <p class="step-q">Выберите класс</p>
+            <p class="step-sub">Можно выбрать несколько</p>
+            <div id="gradeChips">
+              <button type="button" class="grade-chip" data-grade="1">1 класс</button>
+              <button type="button" class="grade-chip" data-grade="2">2 класс</button>
+              <button type="button" class="grade-chip" data-grade="3">3 класс</button>
+              <button type="button" class="grade-chip" data-grade="4">4 класс</button>
+              <button type="button" class="grade-chip" data-grade="5">5 класс</button>
+              <button type="button" class="grade-chip" data-grade="6">6 класс</button>
+              <button type="button" class="grade-chip" data-grade="7">7 класс</button>
+            </div>
+            <button type="button" id="btnGrade" class="form-submit" style="margin-top:24px">Записаться на обучение</button>
+          </div>
+
+        </div>
         <div class="form-success" id="formSuccess">
           <span class="ok">✓</span>
           <h3>Заявка отправлена</h3>
@@ -480,7 +505,7 @@
   <div class="container">
     <div class="foot-grid">
       <div>
-        <div class="foot-brand"><img src="assets/phoenix.png" alt="Fenix"><span>FENIX SCHOOL</span></div>
+        <div class="foot-brand"><img src="assets/phoenix.png" alt="Al Kamal"><span>AL KAMAL SCHOOL</span></div>
         <p style="margin-top:22px;font-size:16.5px;line-height:1.6;color:rgba(250,249,247,.6);max-width:340px">Современная школа, где каждый ребёнок раскрывает свой потенциал. Воспитываем знания — развиваем будущее.</p>
       </div>
       <div class="foot-col">
@@ -492,13 +517,13 @@
       <div class="foot-col">
         <div class="head">КОНТАКТЫ</div>
         <div class="links">
-          <span>Фергана, ул. Инженеров, 17</span><a href="tel:+998332710006">+998 33 271 00 06</a><span>Пн–Сб: 08:00–17:00</span>
+          <span>Фергана, ул. Фаровон Турмуш, 560</span><a href="tel:+998732400073">+998 73 240 00 73</a><span>Пн–Сб: 08:00–17:00</span>
         </div>
       </div>
     </div>
-    <div class="foot-word">FENIX</div>
+    <div class="foot-word">AL KAMAL</div>
     <div class="foot-bottom">
-      <span>© 2026 Fenix School · Фергана</span>
+      <span>© 2026 Al Kamal School · Фергана</span>
       <span>Воспитываем знания. Развиваем будущее.</span>
     </div>
   </div>

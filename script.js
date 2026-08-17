@@ -1,5 +1,5 @@
 /* ============================================================
-   FENIX SCHOOL — landing page interactions (vanilla JS)
+   AL KAMAL SCHOOL — landing page interactions (vanilla JS)
    ============================================================ */
 (function () {
   'use strict';
@@ -38,7 +38,7 @@
     { img: 'assets/lobby-plants.webp', title: 'Зелёные зоны', caption: 'Живые растения и мягкий свет создают уют.' },
     { img: 'assets/corridor.webp', title: 'Просторные коридоры', caption: 'Современная навигация и продуманное освещение.' },
     { img: 'assets/hexagon-lounge.webp', title: 'Зоны отдыха', caption: 'Места для общения и перезагрузки между уроками.' },
-    { img: 'assets/marble-wall.webp', title: 'Стена Fenix', caption: 'Фирменный акцент в интерьере школы.' },
+    { img: 'assets/marble-wall.webp', title: 'Стена Al Kamal', caption: 'Фирменный акцент в интерьере школы.' },
     { img: 'assets/hall-wings.webp', title: 'Актовое пространство', caption: 'Просторный зал для событий и мероприятий.' },
     { img: 'assets/tech-class.webp', title: 'Кабинет технологий', caption: 'Современное оснащение для практических занятий.' },
     { img: 'assets/art-class.webp', title: 'Творческий класс', caption: 'Яркая среда, которая вдохновляет учиться.' }
@@ -54,9 +54,9 @@
 
   var steps = [
     { num: '01', title: 'Оставьте заявку', text: 'Заполните форму или позвоните нам — мы свяжемся с вами и ответим на вопросы.' },
-    { num: '02', title: 'Знакомство со школой', text: 'Приезжайте на экскурсию, познакомьтесь с педагогами и атмосферой FENIX.' },
+    { num: '02', title: 'Знакомство со школой', text: 'Приезжайте на экскурсию, познакомьтесь с педагогами и атмосферой AL KAMAL.' },
     { num: '03', title: 'Собеседование', text: 'Проведём знакомство с ребёнком и определим подходящий класс и направление.' },
-    { num: '04', title: 'Зачисление', text: 'Оформляем документы — и добро пожаловать в FENIX SCHOOL.' }
+    { num: '04', title: 'Зачисление', text: 'Оформляем документы — и добро пожаловать в AL KAMAL SCHOOL.' }
   ];
 
   var reviews = [
@@ -68,8 +68,8 @@
   ];
 
   var faqs = [
-    { q: 'В какие классы можно поступить?', a: 'Мы принимаем учеников в 1–11 классы. Точные условия и наличие мест уточняйте у приёмной комиссии по телефону.' },
-    { q: 'На каких языках ведётся обучение?', a: 'В FENIX SCHOOL есть русское и узбекское направления с углублённым вниманием к языкам и математике.' },
+    { q: 'В какие классы можно поступить?', a: 'Мы принимаем учеников в 1–7 классы. Точные условия и наличие мест уточняйте у приёмной комиссии по телефону.' },
+    { q: 'На каких языках ведётся обучение?', a: 'В AL KAMAL SCHOOL есть русское и узбекское направления с углублённым вниманием к языкам и математике.' },
     { q: 'Организовано ли питание?', a: 'Да, для учеников предусмотрено полноценное питание в течение дня и комфортные условия обучения.' },
     { q: 'Как проходит поступление?', a: 'Оставьте заявку, приезжайте на знакомство со школой, пройдите короткое собеседование — и мы оформим зачисление.' },
     { q: 'Какой режим работы школы?', a: 'Школа работает с понедельника по субботу, с 08:00 до 17:00.' }
@@ -204,16 +204,99 @@
     fl.appendChild(item);
   });
 
-  /* ---------- FORM ---------- */
-  var form = document.getElementById('applyForm');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = document.getElementById('fName').value.trim() || 'родители';
-    document.getElementById('successMsg').textContent =
-      'Спасибо, ' + name + '! Мы свяжемся с вами по телефону в ближайшее время.';
-    form.style.display = 'none';
+  /* ---------- FORM (step-by-step) ---------- */
+  var stepName  = document.getElementById('stepName');
+  var stepPhone = document.getElementById('stepPhone');
+  var stepGrade = document.getElementById('stepGrade');
+  var fName     = document.getElementById('fName');
+  var fPhone    = document.getElementById('fPhone');
+  var selectedGrades = [];
+
+  function goToStep(hideEl, showEl) {
+    hideEl.style.opacity = '0';
+    hideEl.style.transition = 'opacity .25s';
+    setTimeout(function () {
+      hideEl.style.display = 'none';
+      showEl.style.display = 'flex';
+      showEl.classList.add('step-enter');
+      var inp = showEl.querySelector('input');
+      if (inp) setTimeout(function () { inp.focus(); }, 60);
+    }, 250);
+  }
+
+  /* Phone formatting: prefix "+998 " then XXX XX XX */
+  fPhone.value = '+998 ';
+  fPhone.addEventListener('focus', function () {
+    if (!fPhone.value.startsWith('+998 ')) fPhone.value = '+998 ';
+  });
+  fPhone.addEventListener('input', function () {
+    var prefix = '+998 ';
+    var raw = fPhone.value;
+    if (!raw.startsWith(prefix)) { fPhone.value = prefix; return; }
+    var digits = raw.slice(prefix.length).replace(/\D/g, '').slice(0, 9);
+    var formatted = '';
+    if (digits.length > 0) formatted += digits.slice(0, 2);
+    if (digits.length > 2) formatted += ' ' + digits.slice(2, 5);
+    if (digits.length > 5) formatted += ' ' + digits.slice(5, 7);
+    if (digits.length > 7) formatted += ' ' + digits.slice(7, 9);
+    fPhone.value = prefix + formatted;
+  });
+  fPhone.addEventListener('keydown', function (e) {
+    var prefix = '+998 ';
+    if ((e.key === 'Backspace' || e.key === 'Delete') && fPhone.value === prefix) {
+      e.preventDefault();
+    }
+  });
+
+  document.getElementById('btnName').addEventListener('click', function () {
+    if (!fName.value.trim()) { fName.focus(); return; }
+    goToStep(stepName, stepPhone);
+  });
+  fName.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') document.getElementById('btnName').click();
+  });
+
+  document.getElementById('btnPhone').addEventListener('click', function () {
+    var digits = fPhone.value.replace(/\D/g, '');
+    if (digits.length < 12) { fPhone.focus(); return; }
+    goToStep(stepPhone, stepGrade);
+  });
+  fPhone.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') document.getElementById('btnPhone').click();
+  });
+
+  document.getElementById('gradeChips').addEventListener('click', function (e) {
+    var chip = e.target.closest('.grade-chip');
+    if (!chip) return;
+    var grade = chip.getAttribute('data-grade');
+    if (chip.classList.contains('selected')) {
+      chip.classList.remove('selected');
+      selectedGrades = selectedGrades.filter(function (g) { return g !== grade; });
+    } else {
+      chip.classList.add('selected');
+      selectedGrades.push(grade);
+    }
+  });
+
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycby_5xzzsi9jpV0Du_I3Pfnmed3JVu9XS1m9uurf_NNv9CeTwwWQxpT283jsEH3pePYj/exec';
+
+  document.getElementById('btnGrade').addEventListener('click', function () {
+    if (!selectedGrades.length) { return; }
+    var name   = fName.value.trim();
+    var phone  = fPhone.value.trim();
+    var grades = selectedGrades.slice().sort().map(function(g){ return g+' класс'; }).join(', ');
+
+    document.getElementById('formSteps').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
-    /* TODO: отправка данных на сервер / Telegram / email */
+    document.getElementById('successMsg').textContent =
+      'Спасибо, ' + name + '! Мы свяжемся с вами в ближайшее время.';
+
+    fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ name: name, phone: phone.replace('+998 ', ''), grades: grades })
+    }).catch(function(err) { console.error('Sheet error:', err); });
   });
 
   /* ---------- REVEAL ON SCROLL ---------- */
