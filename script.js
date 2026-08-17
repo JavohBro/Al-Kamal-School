@@ -21,15 +21,6 @@
       points: ['Rus tilida ta\'lim', 'Ingliz tili va matematikaga chuqur e\'tibor', 'Zamonaviy o\'qitish metodikalari'],
       quote: '«Qizim maktabga xursandchilik bilan boradi. Matematika va ingliz tilida haqiqiy rivojlanishni ko\'ryapmiz».',
       author: 'Nargiza A. · 3-sinf o\'quvchisining onasi'
-    },
-    {
-      name: 'O\'zbek yo\'nalishi',
-      img: 'assets/art-class.webp',
-      title: 'O\'zbek yo\'nalishi',
-      desc: 'O\'zbek tilida ta\'lim, akademik ko\'nikmalarni rivojlantirish va kelajakdagi yutuqlarga tayyorlash.',
-      points: ['O\'zbek tilida ta\'lim', 'Akademik ko\'nikmalarni rivojlantirish', 'Kelajakdagi yutuqlarga tayyorlash'],
-      quote: '«Mustahkam baza va iliq muhit. Farzandim ochildi va yanada ishonchli bo\'ldi».',
-      author: 'Malika R. · 2-sinf o\'quvchisining onasi'
     }
   ];
 
