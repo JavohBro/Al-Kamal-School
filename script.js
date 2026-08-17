@@ -24,16 +24,6 @@
     }
   ];
 
-  var gallery = [
-    { img: 'assets/reception.webp', title: 'Resepshn va asosiy hol', caption: 'Yorug\' makon o\'quvchilar va ota-onalarni kutib oladi.' },
-    { img: 'assets/lobby-plants.webp', title: 'Yashil zonalar', caption: 'Tirik o\'simliklar va yumshoq yorug\'lik qulay muhit yaratadi.' },
-    { img: 'assets/corridor.webp', title: 'Keng yo\'laklar', caption: 'Zamonaviy navigatsiya va o\'ylangan yoritish.' },
-    { img: 'assets/hexagon-lounge.webp', title: 'Dam olish zonalari', caption: 'Darslar orasida muloqot va dam olish joylari.' },
-    { img: 'assets/marble-wall.webp', title: 'Al Kamal devori', caption: 'Maktab interyerining o\'ziga xos aksenti.' },
-    { img: 'assets/hall-wings.webp', title: 'Aktovy zal', caption: 'Tadbirlar va anjumanlar uchun keng maydon.' },
-    { img: 'assets/tech-class.webp', title: 'Texnologiya sinfi', caption: 'Amaliy mashg\'ulotlar uchun zamonaviy jihozlar.' },
-    { img: 'assets/art-class.webp', title: 'Ijodiy sinf', caption: 'O\'qishga ilhomlantiruvchi yorqin muhit.' }
-  ];
 
 
   var steps = [
@@ -96,32 +86,6 @@
   });
   renderDir(0);
 
-  /* ---------- RENDER: campus gallery ---------- */
-  var galImg = document.getElementById('galImg');
-  var galTitle = document.getElementById('galTitle');
-  var galCaption = document.getElementById('galCaption');
-  var galCount = document.getElementById('galCount');
-  var thumbsWrap = document.getElementById('thumbs');
-  var galIndex = 0;
-
-  function renderGal(i) {
-    galIndex = (i + gallery.length) % gallery.length;
-    var g = gallery[galIndex];
-    galImg.src = g.img; galImg.alt = g.title;
-    galTitle.textContent = g.title;
-    galCaption.textContent = g.caption;
-    galCount.textContent = (galIndex + 1) + ' / ' + gallery.length;
-    [].forEach.call(thumbsWrap.children, function (t, k) { t.classList.toggle('active', k === galIndex); });
-  }
-  gallery.forEach(function (g, i) {
-    var t = el('button', 'thumb' + (i === 0 ? ' active' : ''));
-    t.innerHTML = '<img src="' + g.img + '" alt="">';
-    t.addEventListener('click', function () { renderGal(i); });
-    thumbsWrap.appendChild(t);
-  });
-  renderGal(0);
-  document.getElementById('galPrev').addEventListener('click', function () { renderGal(galIndex - 1); });
-  document.getElementById('galNext').addEventListener('click', function () { renderGal(galIndex + 1); });
 
 
   /* ---------- RENDER: steps ---------- */
