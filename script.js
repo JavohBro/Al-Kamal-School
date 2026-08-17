@@ -44,13 +44,6 @@
     { img: 'assets/art-class.webp', title: 'Творческий класс', caption: 'Яркая среда, которая вдохновляет учиться.' }
   ];
 
-  var benefits = [
-    'Сильную образовательную базу',
-    'Поддержку опытных педагогов',
-    'Комфортную школьную атмосферу',
-    'Развитие навыков общения и мышления',
-    'Подготовку к будущим возможностям'
-  ];
 
   var steps = [
     { num: '01', title: 'Оставьте заявку', text: 'Заполните форму или позвоните нам — мы свяжемся с вами и ответим на вопросы.' },
@@ -59,21 +52,7 @@
     { num: '04', title: 'Зачисление', text: 'Оформляем документы — и добро пожаловать в AL KAMAL SCHOOL.' }
   ];
 
-  var reviews = [
-    { dark: true, quote: 'Здесь ребёнок не просто учится — он растёт как личность. Замечаем уверенность и самостоятельность.', name: 'Оксана В.', role: 'мама ученика 8 класса', initials: 'ОВ' },
-    { quote: 'Сильная программа по математике и английскому. Видим реальный прогресс каждый месяц.', name: 'Дмитрий К.', role: 'папа ученика 6 класса', initials: 'ДК' },
-    { video: 'assets/hall-wings.webp', quote: 'Атмосфера тёплая, а условия — на высоте. Рекомендуем всем родителям.', name: 'Семья Юсуповых', role: 'родители ученицы 4 класса', initials: 'СЮ' },
-    { quote: 'Дочь ходит в школу с удовольствием. Учителя внимательные, атмосфера тёплая.', name: 'Наргиза А.', role: 'мама ученицы 3 класса', initials: 'НА' },
-    { quote: 'Отдельное спасибо за питание и комфорт — ребёнок всегда сыт и спокоен.', name: 'Малика Р.', role: 'мама ученика 2 класса', initials: 'МР' }
-  ];
 
-  var faqs = [
-    { q: 'В какие классы можно поступить?', a: 'Мы принимаем учеников в 1–7 классы. Точные условия и наличие мест уточняйте у приёмной комиссии по телефону.' },
-    { q: 'На каких языках ведётся обучение?', a: 'В AL KAMAL SCHOOL есть русское и узбекское направления с углублённым вниманием к языкам и математике.' },
-    { q: 'Организовано ли питание?', a: 'Да, для учеников предусмотрено полноценное питание в течение дня и комфортные условия обучения.' },
-    { q: 'Как проходит поступление?', a: 'Оставьте заявку, приезжайте на знакомство со школой, пройдите короткое собеседование — и мы оформим зачисление.' },
-    { q: 'Какой режим работы школы?', a: 'Школа работает с понедельника по субботу, с 08:00 до 17:00.' }
-  ];
 
   function el(tag, cls, html) {
     var e = document.createElement(tag);
@@ -153,14 +132,6 @@
   document.getElementById('galPrev').addEventListener('click', function () { renderGal(galIndex - 1); });
   document.getElementById('galNext').addEventListener('click', function () { renderGal(galIndex + 1); });
 
-  /* ---------- RENDER: benefits ---------- */
-  var bg = document.getElementById('benefitGrid');
-  benefits.forEach(function (t, i) {
-    var b = el('div', 'benefit reveal');
-    b.style.transitionDelay = (i * 0.08) + 's';
-    b.innerHTML = '<span class="tick">✓</span><p>' + esc(t) + '</p>';
-    bg.appendChild(b);
-  });
 
   /* ---------- RENDER: steps ---------- */
   var st = document.getElementById('steps');
@@ -171,38 +142,7 @@
     st.appendChild(e);
   });
 
-  /* ---------- RENDER: reviews ---------- */
-  var ms = document.getElementById('masonry');
-  reviews.forEach(function (r, i) {
-    var card = el('div', 'review-card reveal' + (r.dark ? ' dark' : ''));
-    card.style.transitionDelay = (i * 0.07) + 's';
-    var html = '';
-    if (r.video) {
-      html += '<div class="video"><img src="' + r.video + '" alt="Экскурсия по школе">' +
-        '<div class="ov"><span class="play">▶</span></div><span class="vlabel">Экскурсия по школе</span></div>';
-    }
-    html += '<p class="quote">' + esc(r.quote) + '</p>' +
-      '<div class="who-row"><span class="avatar">' + esc(r.initials) + '</span>' +
-      '<div><div class="nm">' + esc(r.name) + '</div><div class="rl">' + esc(r.role) + '</div></div></div>';
-    card.innerHTML = html;
-    ms.appendChild(card);
-  });
 
-  /* ---------- RENDER: FAQ ---------- */
-  var fl = document.getElementById('faqList');
-  faqs.forEach(function (f, i) {
-    var item = el('div', 'faq-item reveal' + (i === 0 ? ' open' : ''));
-    item.style.transitionDelay = (i * 0.06) + 's';
-    item.innerHTML =
-      '<button class="faq-q"><span>' + esc(f.q) + '</span><span class="faq-sign">+</span></button>' +
-      '<div class="faq-a"><p>' + esc(f.a) + '</p></div>';
-    item.querySelector('.faq-q').addEventListener('click', function () {
-      var isOpen = item.classList.contains('open');
-      [].forEach.call(fl.children, function (c) { c.classList.remove('open'); });
-      if (!isOpen) item.classList.add('open');
-    });
-    fl.appendChild(item);
-  });
 
   /* ---------- FORM (step-by-step) ---------- */
   var stepName  = document.getElementById('stepName');

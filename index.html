@@ -132,18 +132,7 @@
   .thumb img{width:100%;height:100%;object-fit:cover}
   .thumb.active{outline-color:var(--accent);opacity:1}
 
-  /* BENEFITS */
-  .benefits{padding:clamp(90px,12vw,160px) 32px;background:var(--dark);color:#FAF9F7}
-  .benefits .label{color:var(--gold-on-dark)}
-  .benefits h2{color:#FAF9F7}
-  .benefit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-  .benefit{padding:34px 30px 34px 0;border-top:1px solid rgba(250,249,247,.14)}
-  .benefit .tick{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,153,92,.6);color:var(--gold-on-dark);font-size:13px}
-  .benefit p{margin-top:20px;font-size:19px;line-height:1.4;font-weight:500}
 
-  /* CARE */
-  .care{padding:clamp(90px,12vw,160px) 32px}
-  .care .media{aspect-ratio:5/4}
 
   /* ADMISSION */
   .admission{padding:clamp(80px,10vw,150px) 32px;background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -156,44 +145,10 @@
   .step h3{font-size:clamp(20px,2.2vw,25px);font-weight:600;letter-spacing:-.01em}
   .step p{margin-top:10px;font-size:16.5px;line-height:1.6;color:var(--gray)}
 
-  /* MISSION */
-  .mission{padding:clamp(100px,14vw,190px) 32px;text-align:center}
-  .mission .inner{max-width:960px;margin:0 auto}
-  .mission h2{margin-top:28px;font-size:clamp(30px,4.6vw,58px);line-height:1.15;letter-spacing:-.02em;font-weight:300}
-  .mission h2 b{font-weight:700}
-  .mission p{margin:30px auto 0;font-size:19px;line-height:1.68;color:var(--gray);max-width:640px}
 
   /* REVIEWS */
-  .reviews{padding:clamp(80px,10vw,140px) 32px clamp(90px,12vw,160px);background:#fff;border-top:1px solid var(--border)}
-  .masonry{columns:360px;column-gap:20px}
-  .review-card{break-inside:avoid;margin-bottom:20px;padding:32px;border-radius:24px;border:1px solid var(--border);background:var(--bg)}
-  .review-card.dark{background:var(--accent);border-color:var(--accent)}
-  .review-card.dark .quote{color:#FAF9F7;font-size:22px;line-height:1.42;letter-spacing:-.01em}
-  .quote{font-size:18px;line-height:1.55;color:var(--ink);font-weight:500}
-  .video{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/12;margin-bottom:20px}
-  .video img{width:100%;height:100%;object-fit:cover}
-  .video .ov{position:absolute;inset:0;background:rgba(15,13,11,.28);display:flex;align-items:center;justify-content:center}
-  .video .play{width:60px;height:60px;border-radius:50%;background:rgba(250,249,247,.92);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:18px;padding-left:4px}
-  .video .vlabel{position:absolute;left:16px;bottom:14px;color:#fff;font-size:14px;font-weight:600;letter-spacing:.04em}
-  .who-row{display:flex;align-items:center;gap:13px;margin-top:22px}
-  .avatar{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--bg);display:inline-flex;align-items:center;justify-content:center;font-size:15px;font-weight:600}
-  .who-row .nm{font-size:15px;font-weight:600}
-  .who-row .rl{font-size:13.5px;color:var(--gray);margin-top:2px}
 
   /* FAQ */
-  .faq{padding:clamp(80px,10vw,150px) 32px}
-  .faq .inner{max-width:1000px;margin:0 auto}
-  .faq-head{text-align:center;max-width:620px;margin:0 auto clamp(40px,5vw,64px)}
-  .faq-head h2{font-size:clamp(30px,4vw,50px);line-height:1.1}
-  .faq-list{display:flex;flex-direction:column;gap:12px}
-  .faq-item{border:1px solid var(--border);border-radius:22px;background:#fff;overflow:hidden}
-  .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 30px;background:transparent;border:none;cursor:pointer;text-align:left}
-  .faq-q span:first-child{font-size:clamp(17px,2vw,21px);font-weight:600}
-  .faq-sign{font-size:26px;font-weight:300;color:var(--gray);flex-shrink:0;line-height:1;transition:transform .35s var(--ease),color .3s ease}
-  .faq-item.open .faq-sign{transform:rotate(45deg);color:var(--gold)}
-  .faq-a{max-height:0;opacity:0;overflow:hidden;transition:max-height .45s var(--ease),opacity .4s ease}
-  .faq-item.open .faq-a{max-height:320px;opacity:1}
-  .faq-a p{padding:0 30px 28px;font-size:17px;line-height:1.62;color:var(--gray);max-width:760px}
 
   /* CONTACT */
   .contact{padding:clamp(80px,10vw,140px) 32px clamp(90px,12vw,150px)}
@@ -248,6 +203,13 @@
   @media (max-width:600px){
     .adm-intro{position:static}
     .container,.hero{padding-left:20px;padding-right:20px}
+    .contact{padding:40px 16px}
+    .contact-card{border-radius:22px}
+    .contact-info{padding:28px 22px}
+    .form-wrap{padding:24px 22px;border-left:none;border-top:1px solid rgba(250,249,247,.1)}
+    .step-q{font-size:22px}
+    .step-input{font-size:16px;padding:15px 18px}
+    .form-submit{padding:15px}
   }
   @media (prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;filter:none;transition:none}
@@ -264,7 +226,6 @@
     <a href="#about">О школе</a>
     <a href="#directions">Направления</a>
     <a href="#campus">Кампус</a>
-    <a href="#reviews">Отзывы</a>
   </div>
   <a href="#contact" class="btn btn-dark" data-magnetic>Оставить заявку</a>
 </nav>
@@ -370,31 +331,7 @@
   </div>
 </section>
 
-<!-- BENEFITS -->
-<section class="benefits">
-  <div class="container">
-    <div style="max-width:640px;margin-bottom:clamp(44px,6vw,72px)">
-      <span class="label reveal">РЕЗУЛЬТАТ</span>
-      <h2 class="h2 reveal" style="transition-delay:.08s">Что получает ваш <span class="light">ребёнок</span></h2>
-    </div>
-    <div class="benefit-grid" id="benefitGrid"></div>
-  </div>
-</section>
 
-<!-- CARE -->
-<section class="care" id="care">
-  <div class="container">
-    <div class="grid2">
-      <div>
-        <span class="label reveal">ЗАБОТА</span>
-        <h2 class="h2 reveal" style="transition-delay:.08s">Забота о каждом <span class="light">ученике</span></h2>
-        <p class="lede reveal" style="transition-delay:.16s;margin-top:26px;max-width:500px">Образование — это не только уроки. Мы создаём условия, где ребёнок чувствует себя уверенно, получает поддержку и развивается каждый день.</p>
-        <p class="lede reveal" style="transition-delay:.22s;margin-top:18px;color:var(--gray);max-width:500px">Для учеников предусмотрены комфортные условия обучения и полноценное питание в течение дня.</p>
-      </div>
-      <div class="reveal blur" style="transition-delay:.12s"><div class="media"><img src="assets/hexagon-lounge.webp" alt="Зоны отдыха Al Kamal"></div></div>
-    </div>
-  </div>
-</section>
 
 <!-- ADMISSION -->
 <section class="admission" id="admission">
@@ -411,36 +348,8 @@
   </div>
 </section>
 
-<!-- MISSION -->
-<section class="mission">
-  <div class="inner">
-    <span class="label reveal">МИССИЯ</span>
-    <h2 class="reveal blur" style="transition-delay:.1s">Создавать поколение <b>уверенных и успешных</b> людей.</h2>
-    <p class="reveal" style="transition-delay:.24s">Мы хотим, чтобы выпускники AL KAMAL SCHOOL были готовы к большим целям, новым знаниям и будущим возможностям. Каждый день — новый шаг к успеху.</p>
-  </div>
-</section>
 
-<!-- REVIEWS -->
-<section class="reviews" id="reviews">
-  <div class="container">
-    <div style="max-width:700px;margin-bottom:clamp(44px,6vw,72px)">
-      <span class="label reveal">ОТЗЫВЫ</span>
-      <h2 class="h2 reveal" style="transition-delay:.08s">Что говорят <span class="light">родители</span></h2>
-    </div>
-    <div class="masonry" id="masonry"></div>
-  </div>
-</section>
 
-<!-- FAQ -->
-<section class="faq" id="faq">
-  <div class="inner">
-    <div class="faq-head">
-      <span class="label reveal">ВОПРОСЫ</span>
-      <h2 class="h2 reveal" style="transition-delay:.08s">Частые <span class="light">вопросы</span></h2>
-    </div>
-    <div class="faq-list" id="faqList"></div>
-  </div>
-</section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
